@@ -107,6 +107,11 @@ public class Config {
         // configが勝手にDoubleにされてしまうのでIntegerに変換
         Map<String, Map<String, Object>> newSpeedyPathMap = new LinkedHashMap<>();
         config.configMap.forEach((key, value) -> {
+            if (!key.equals("speedypath")) {
+                newSpeedyPathMap.put(key, (Map<String, Object>) value);
+                return;
+            }
+
             Map<String, Map<String, Object>> map = (Map<String, Map<String, Object>>) value;
             map.forEach((key1, effects) -> {
                 Map<String, Object> newEffects = new LinkedHashMap<>();
