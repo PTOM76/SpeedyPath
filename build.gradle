@@ -37,7 +37,6 @@ subprojects {
         modApi "net.pitan76:mcpitanlib-common+${rootProject.mcpitanlib_version}"
     }
 
-    /*
     if (name in rootProject.enabled_platforms.split(",")) {
         var modLoader = name
 
@@ -45,7 +44,7 @@ subprojects {
             curseforge {
                 apiKey = System.getenv("CURSEFORGE_TOKEN")
                 project {
-                    id = ''
+                    id = '1102702'
                     changelog = rootProject.changelog + "\nMCPitanLib version: " + mcpitanlib_version.split(":")[1]
                     releaseType = 'release'
 
@@ -89,6 +88,7 @@ subprojects {
 
         }
 
+        /*
         if (System.getenv("MODRINTH_TOKEN") != null) {
             modrinth {
                 token = System.getenv("MODRINTH_TOKEN")
@@ -114,8 +114,8 @@ subprojects {
                 }
             }
         }
-    }
     */
+    }
 }
 
 allprojects {
