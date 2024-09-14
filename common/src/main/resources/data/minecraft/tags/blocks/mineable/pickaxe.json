@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "speedypath:stone_path",
+    "speedypath:brick_path"
+  ]
+}

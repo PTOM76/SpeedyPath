@@ -4,7 +4,10 @@ import net.pitan76.mcpitanlib.api.CommonModInitializer;
 import net.pitan76.mcpitanlib.api.command.CommandRegistry;
 import net.pitan76.mcpitanlib.api.registry.v2.CompatRegistryV2;
 import net.pitan76.mcpitanlib.api.util.CompatIdentifier;
+import net.pitan76.speedypath.block.Blocks;
 import net.pitan76.speedypath.command.SpeedyPathCommand;
+import net.pitan76.speedypath.item.ItemGroups;
+import net.pitan76.speedypath.item.Items;
 
 public class SpeedyPath extends CommonModInitializer {
     public static final String MOD_ID = "speedypath";
@@ -18,8 +21,15 @@ public class SpeedyPath extends CommonModInitializer {
         INSTANCE = this;
         registry = super.registry;
 
-        CommandRegistry.register("speedypath", new SpeedyPathCommand());
         Config.init();
+        CommandRegistry.register("speedypath", new SpeedyPathCommand());
+
+        if (Config.addSpeedPathBlocks) {
+            ItemGroups.init();
+            Blocks.init();
+            Items.init();
+        }
+
     }
 
     // ----

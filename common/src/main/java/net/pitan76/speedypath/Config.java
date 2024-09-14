@@ -32,10 +32,17 @@ public class Config {
 
     public static void init() {
         Map<String, Map<String, Integer>> defaultMap = new LinkedHashMap<>();
-        Map<String, Integer> dirtPathInDefaultMap = new LinkedHashMap<>();
 
+        Map<String, Integer> dirtPathInDefaultMap = new LinkedHashMap<>();
+        Map<String, Integer> stonePathInDefaultMap = new LinkedHashMap<>();
+        Map<String, Integer> brickPathInDefaultMap = new LinkedHashMap<>();
         dirtPathInDefaultMap.put("speed", 1);
+        stonePathInDefaultMap.put("speed", 2);
+        brickPathInDefaultMap.put("speed", 3);
+
         defaultMap.put("minecraft:dirt_path", dirtPathInDefaultMap);
+        defaultMap.put("speedypath:stone_path", stonePathInDefaultMap);
+        defaultMap.put("speedypath:brick_path", brickPathInDefaultMap);
 
         Map<String, Map<String, Integer>> speedyPaths = (Map<String, Map<String, Integer>>) config.getOrCreate("speedypath", defaultMap);
         rawPathBlocks = speedyPaths;

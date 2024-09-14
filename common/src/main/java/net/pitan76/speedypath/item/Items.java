@@ -12,13 +12,19 @@ import static net.pitan76.speedypath.SpeedyPath.registry;
 public class Items {
 
     public static final CompatibleItemSettings STANDARD_ITEM_SETTINGS = CompatibleItemSettings.of()
-            .addGroup(ItemGroups.EXAMPLE_ITEMS);
+            .addGroup(ItemGroups.SPEEDY_PATH);
 
-    public static RegistryResult<Item> EXAMPLE_ITEM;
-    public static RegistryResult<Item> EXAMPLE_BLOCK;
+    public static RegistryResult<Item> WRENCH_FOR_PATH;
+    public static RegistryResult<Item> STONE_PATH;
+    public static RegistryResult<Item> BRICK_PATH;
 
     public static void init() {
-        EXAMPLE_ITEM = registry.registerItem(_id("example_item"), () -> new ExampleItem(STANDARD_ITEM_SETTINGS));
-        EXAMPLE_BLOCK = registry.registerItem(_id("example_block"), () -> ItemUtil.ofBlock(Blocks.EXAMPLE_BLOCK.getOrNull(), STANDARD_ITEM_SETTINGS));
+        WRENCH_FOR_PATH = registry.registerItem(_id("wrench_for_path"), () -> new WrenchForPath(CompatibleItemSettings.of()
+                .addGroup(ItemGroups.SPEEDY_PATH)
+                .maxCount(1)
+        ));
+
+        STONE_PATH = registry.registerItem(_id("stone_path"), () -> ItemUtil.ofBlock(Blocks.STONE_PATH.getOrNull(), STANDARD_ITEM_SETTINGS));
+        BRICK_PATH = registry.registerItem(_id("brick_path"), () -> ItemUtil.ofBlock(Blocks.BRICK_PATH.getOrNull(), STANDARD_ITEM_SETTINGS));
     }
 }

@@ -1,6 +1,7 @@
 {
-  "item.speedypath.example_item": "Example Item",
-  "block.speedypath.example_block": "Example Block",
+  "item.speedypath.wrench_for_path": "Wrench for Path",
+  "block.speedypath.stone_path": "Stone Path",
+  "block.speedypath.brick_path": "Brick Path",
 
-  "itemGroup.speedypath.example_items": "Example Items"
+  "itemGroup.speedypath.speedy_path": "Speedy Path"
 }

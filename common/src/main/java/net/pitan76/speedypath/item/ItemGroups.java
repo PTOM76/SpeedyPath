@@ -7,11 +7,10 @@ import static net.pitan76.speedypath.SpeedyPath._id;
 import static net.pitan76.speedypath.SpeedyPath.registry;
 
 public class ItemGroups {
-
-    public static CreativeTabBuilder EXAMPLE_ITEMS = CreativeTabBuilder.create(_id("example_items"))
-            .setIcon(() -> ItemStackUtil.create(Items.EXAMPLE_ITEM.get()));
+    public static CreativeTabBuilder SPEEDY_PATH = CreativeTabBuilder.create(_id("speedy_path"))
+            .setIcon(() -> ItemStackUtil.create(Items.STONE_PATH.get()));
 
     public static void init() {
-        registry.registerItemGroup(EXAMPLE_ITEMS);
+        registry.registerItemGroup(SPEEDY_PATH);
     }
 }
