@@ -30,7 +30,11 @@ public class Config {
 
     public static boolean addSpeedPathBlocks = true;
 
-    public static void init() {
+    public static void before() {
+        addSpeedPathBlocks = config.getBooleanOrCreate("additional_elements", true);
+    }
+
+    public static void after() {
         Map<String, Map<String, Integer>> defaultMap = new LinkedHashMap<>();
 
         Map<String, Integer> dirtPathInDefaultMap = new LinkedHashMap<>();

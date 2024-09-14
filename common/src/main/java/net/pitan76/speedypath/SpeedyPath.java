@@ -21,7 +21,8 @@ public class SpeedyPath extends CommonModInitializer {
         INSTANCE = this;
         registry = super.registry;
 
-        Config.init();
+        Config.before();
+
         CommandRegistry.register("speedypath", new SpeedyPathCommand());
 
         if (Config.addSpeedPathBlocks) {
@@ -30,6 +31,7 @@ public class SpeedyPath extends CommonModInitializer {
             Items.init();
         }
 
+        Config.after();
     }
 
     // ----

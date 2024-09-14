@@ -15,6 +15,6 @@ public class Blocks {
 
     public static void init() {
         STONE_PATH = registry.registerBlock(_id("stone_path"), () -> new CustomPathBlock(CompatibleBlockSettings.of(CompatibleMaterial.STONE).strength(1.5F, 6.0F)));
-        BRICK_PATH = registry.registerBlock(_id("brick_path"), () -> new CustomPathBlock(CompatibleBlockSettings.of(CompatibleMaterial.STONE).strength(1.5F, 6.0F)));
+        BRICK_PATH = registry.registerBlock(_id("brick_path"), () -> new FacingCustomPathBlock(CompatibleBlockSettings.of(CompatibleMaterial.STONE).strength(1.5F, 6.0F)));
     }
 }

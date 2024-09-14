@@ -1,10 +1,10 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "block/dirt",
-    "top": "block/dirt_path_top",
-    "side": "block/dirt_path_side",
-    "bottom": "block/dirt"
+    "particle": "minecraft:block/stone_path",
+    "top": "speedypath:block/stone_path",
+    "side": "speedypath:block/stone_path",
+    "bottom": "speedypath:block/stone_path"
   },
   "elements": [
     {
