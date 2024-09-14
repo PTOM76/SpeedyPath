@@ -106,7 +106,10 @@ public class Config {
     public static void saveOnly() {
         // configが勝手にDoubleにされてしまうのでIntegerに変換
         Map<String, Map<String, Object>> newSpeedyPathMap = new LinkedHashMap<>();
-        config.configMap.forEach((key, value) -> {
+        for (Map.Entry<String, Object> entry : config.configMap.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+
             if (!key.equals("speedypath")) return;
 
             Map<String, Map<String, Object>> map = (Map<String, Map<String, Object>>) value;
@@ -124,7 +127,7 @@ public class Config {
                 }
                 newSpeedyPathMap.put(key1, newEffects);
             });
-        });
+        }
 
         config.set("speedypath", newSpeedyPathMap);
 
