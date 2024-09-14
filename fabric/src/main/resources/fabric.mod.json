@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "The player is able to move faster on the designated path.",
+  "authors": [
+    "Pitan"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/speedypath/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.pitan76.speedypath.fabric.SpeedyPathFabric"
+    ]
+  },
+  "mixins": [
+    "speedypath.mixins.json",
+    "speedypath-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.17",
+    "mcpitanlib": "*"
+  }
+}

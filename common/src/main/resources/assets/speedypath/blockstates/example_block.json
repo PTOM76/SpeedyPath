@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "speedypath:block/example_block"
+    }
+  }
+}

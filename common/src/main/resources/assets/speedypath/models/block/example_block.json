@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "speedypath:block/example_block",
+    "down": "speedypath:block/example_block",
+    "up": "speedypath:block/example_block",
+    "north": "speedypath:block/example_block",
+    "east": "speedypath:block/example_block",
+    "south": "speedypath:block/example_block",
+    "west": "speedypath:block/example_block"
+  }
+}
