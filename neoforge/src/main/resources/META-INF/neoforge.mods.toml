@@ -12,7 +12,7 @@ logoFile = "assets/speedypath/icon.png"
 #credits="Thanks for this example mod goes to Java"
 authors = "Pitan"
 description = '''
-
+The player is able to move faster on the designated path.
 '''
 
 [[dependencies.${mod_id}]]
