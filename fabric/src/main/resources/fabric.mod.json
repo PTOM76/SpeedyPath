@@ -20,7 +20,6 @@
     ]
   },
   "mixins": [
-    "speedypath.mixins.json",
     "speedypath-common.mixins.json"
   ],
   "depends": {

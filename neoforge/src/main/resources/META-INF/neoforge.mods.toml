@@ -38,6 +38,3 @@ side = "BOTH"
 
 [[mixins]]
 config = "speedypath-common.mixins.json"
-
-[[mixins]]
-config = "speedypath.mixins.json"

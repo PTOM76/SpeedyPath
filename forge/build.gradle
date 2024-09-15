@@ -6,6 +6,8 @@ architectury {
     forge()
 }
 
+archivesBaseName = archivesBaseName + "-" + "forge"
+
 loom {
     // accessWidenerPath = project(":common").loom.accessWidenerPath
 
@@ -15,7 +17,6 @@ loom {
         // extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
 
         mixinConfig "speedypath-common.mixins.json"
-        mixinConfig "speedypath.mixins.json"
     }
 }
 
