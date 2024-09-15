@@ -2,19 +2,19 @@
   "variants": {
     "facing=north": {
       "model": "speedypath:block/brick_path",
-      "y": 270
+      "y": 180
     },
     "facing=east": {
       "model": "speedypath:block/brick_path",
-      "y": 180
+      "y": 270
     },
     "facing=south": {
       "model": "speedypath:block/brick_path",
-      "y": 90
+      "y": 0
     },
     "facing=west": {
       "model": "speedypath:block/brick_path",
-      "y": 0
+      "y": 90
     }
   }
 }

@@ -10,13 +10,16 @@ import net.pitan76.mcpitanlib.api.entity.effect.CompatStatusEffectInstance;
 import net.pitan76.mcpitanlib.api.util.BlockStateUtil;
 import net.pitan76.mcpitanlib.api.util.CompatIdentifier;
 import net.pitan76.mcpitanlib.api.util.StatusEffectUtil;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import net.pitan76.mcpitanlib.api.util.WorldUtil;
 
 import java.util.Map;
 
 public class AbstractBlockMixinImpl {
-    public static void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
-        if (Config.pathBlocks.isEmpty()) return;
+    public static void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+        if (WorldUtil.isClient(world)) return;
+        if (WorldUtil.getTime(world) % 4 != 0) return;
+
+        if (Config.isEmptyPath) return;
         if (!entity.isLiving()) return;
         if (entity.isSneaking()) return;
 
@@ -31,12 +34,7 @@ public class AbstractBlockMixinImpl {
             for (Map.Entry<String, Integer> effect : effects.entrySet()) {
                 String effectId = effect.getKey().toLowerCase();
 
-                int level;
-                try {
-                    level = effect.getValue();
-                } catch (ClassCastException e) {
-                    level = 1;
-                }
+                int level = effect.getValue();
 
                 CompatStatusEffectInstance statusEffect = new CompatStatusEffectInstance(StatusEffectUtil.getStatusEffect(CompatIdentifier.of(effectId)), 5, level, false, false);
                 livingEntity.addStatusEffect(statusEffect.getInstance());

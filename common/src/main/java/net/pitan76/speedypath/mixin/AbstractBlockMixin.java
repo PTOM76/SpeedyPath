@@ -16,6 +16,6 @@ public class AbstractBlockMixin {
 
     @Inject(method = "onEntityCollision", at = @At("HEAD"))
     private void speedypath$onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
-        AbstractBlockMixinImpl.onEntityCollision(state, world, pos, entity, ci);
+        AbstractBlockMixinImpl.onEntityCollision(state, world, pos, entity);
     }
 }

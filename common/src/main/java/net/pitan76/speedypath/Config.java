@@ -22,6 +22,8 @@ public class Config {
     private static final File file = new File(PlatformUtil.getConfigFolderAsFile(), "speedypath.json");
     private static final JsonConfig config = new JsonConfig(file);
 
+    public static boolean isEmptyPath;
+
     // Block, Effect ID, Effect Level
     public static Map<Block, Map<String, Integer>> pathBlocks = new LinkedHashMap<>();
 
@@ -68,6 +70,8 @@ public class Config {
             pathBlocks.put(block, effects);
         }
 
+        isEmptyPath = pathBlocks.isEmpty();
+
         saveOnly();
     }
 
@@ -96,6 +100,7 @@ public class Config {
                 pathBlocks.put(block, effects);
             }
 
+            isEmptyPath = pathBlocks.isEmpty();
             return true;
         }
         return false;
@@ -116,7 +121,7 @@ public class Config {
             String key = entry.getKey();
             Object value = entry.getValue();
 
-            if (!key.equals("speedypath")) return;
+            if (!key.equals("speedypath")) continue;
 
             Map<String, Map<String, Object>> map = (Map<String, Map<String, Object>>) value;
             map.forEach((key1, effects) -> {
@@ -135,8 +140,28 @@ public class Config {
             });
         }
 
+        replaceMap(newSpeedyPathMap);
+
         config.set("speedypath", newSpeedyPathMap);
 
         config.save(file, true);
+    }
+
+    public static void replaceMap(Map<String, Map<String, Object>> map) {
+        pathBlocks.clear();
+
+        for (Map.Entry<String, Map<String, Object>> entry : map.entrySet()) {
+            CompatIdentifier id = CompatIdentifier.of(entry.getKey());
+            Map<String, Integer> effects = new LinkedHashMap<>();
+
+            for (Map.Entry<String, Object> effect : entry.getValue().entrySet()) {
+                effects.put(effect.getKey(), (Integer) effect.getValue());
+            }
+
+            Block block = BlockUtil.fromId(id);
+            pathBlocks.put(block, effects);
+        }
+
+        isEmptyPath = pathBlocks.isEmpty();
     }
 }
