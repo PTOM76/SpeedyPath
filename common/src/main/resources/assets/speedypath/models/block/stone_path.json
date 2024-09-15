@@ -1,7 +1,7 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "minecraft:block/stone_path",
+    "particle": "speedypath:block/stone_path",
     "top": "speedypath:block/stone_path",
     "side": "speedypath:block/stone_path",
     "bottom": "speedypath:block/stone_path"

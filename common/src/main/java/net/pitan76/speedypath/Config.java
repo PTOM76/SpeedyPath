@@ -55,8 +55,14 @@ public class Config {
             CompatIdentifier id = CompatIdentifier.of(entry.getKey());
             Map<String, Integer> effects = entry.getValue();
 
-            if (!BlockUtil.isExist(id))
+            if (!BlockUtil.isExist(id)) {
+                // dirt_pathが存在しなくてgrass_pathが存在する場合は、grass_pathを追加
+                if (id.toString().equals("minecraft:dirt_path") && BlockUtil.isExist(CompatIdentifier.of("minecraft:grass_path"))) {
+                    Block block = BlockUtil.fromId(CompatIdentifier.of("minecraft:grass_path"));
+                    pathBlocks.put(block, effects);
+                }
                 continue;
+            }
 
             Block block = BlockUtil.fromId(id);
             pathBlocks.put(block, effects);
