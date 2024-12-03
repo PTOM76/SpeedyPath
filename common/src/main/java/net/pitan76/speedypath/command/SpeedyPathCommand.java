@@ -27,13 +27,13 @@ public class SpeedyPathCommand extends LiteralCommand {
             }
 
             @Override
-            public void execute(ServerCommandEvent serverCommandEvent) {
+            public void execute(ServerCommandEvent e) {
                 boolean reloaded = Config.reload();
                 if (!reloaded) {
-                    serverCommandEvent.sendFailure(TextUtil.literal("Failed to reload the config file named \"speedypath.json\""));
+                    e.sendFailure(TextUtil.literal("Failed to reload the config file named \"speedypath.json\""));
                     return;
                 }
-                serverCommandEvent.sendSuccess(TextUtil.literal("Reloaded the config file named \"speedypath.json\""), false);
+                e.sendSuccess(TextUtil.literal("Reloaded the config file named \"speedypath.json\""), false);
             }
         });
 
@@ -78,10 +78,10 @@ public class SpeedyPathCommand extends LiteralCommand {
                                     }
 
                                     @Override
-                                    public void execute(IntegerCommandEvent event) {
-                                        String blockId = StringArgumentType.getString(event.context, "block_id");
-                                        String effectId = StringArgumentType.getString(event.context, "effect_id");
-                                        int amplifier = event.getValue();
+                                    public void execute(IntegerCommandEvent e) {
+                                        String blockId = StringArgumentType.getString(e.context, "block_id");
+                                        String effectId = StringArgumentType.getString(e.context, "effect_id");
+                                        int amplifier = e.getValue();
 
                                         if (Config.rawPathBlocks.containsKey(blockId)) {
                                             Config.rawPathBlocks.get(blockId).put(effectId, amplifier);
@@ -94,7 +94,7 @@ public class SpeedyPathCommand extends LiteralCommand {
                                         Config.saveRaw();
                                         Config.reload();
 
-                                        event.sendSuccess(TextUtil.literal("Added a Speedy Path with the block id \"" + blockId + "\""), false);
+                                        e.sendSuccess(TextUtil.literal("Added a Speedy Path with the block id \"" + blockId + "\""), false);
                                     }
                                 });
                             }
@@ -142,16 +142,16 @@ public class SpeedyPathCommand extends LiteralCommand {
                     }
 
                     @Override
-                    public void execute(StringCommandEvent event) {
-                        String blockId = StringArgumentType.getString(event.context, event.getValue());
-                        event.sendSuccess(TextUtil.literal("/speedypath add " + blockId + " ([effect_id]=\"speed\") [amplifier]"), false);
+                    public void execute(StringCommandEvent e) {
+                        String blockId = StringArgumentType.getString(e.context, e.getValue());
+                        e.sendSuccess(TextUtil.literal("/speedypath add " + blockId + " ([effect_id]=\"speed\") [amplifier]"), false);
                     }
                 });
             }
 
             @Override
-            public void execute(ServerCommandEvent event) {
-                event.sendSuccess(TextUtil.literal("/speedypath add [block_id] ([effect_id]=\"speed\") [amplifier]"), false);
+            public void execute(ServerCommandEvent e) {
+                e.sendSuccess(TextUtil.literal("/speedypath add [block_id] ([effect_id]=\"speed\") [amplifier]"), false);
             }
         });
 
@@ -174,12 +174,12 @@ public class SpeedyPathCommand extends LiteralCommand {
                     }
 
                     @Override
-                    public void execute(StringCommandEvent event) {
-                        String blockId = StringArgumentType.getString(event.context, event.getValue());
+                    public void execute(StringCommandEvent e) {
+                        String blockId = StringArgumentType.getString(e.context, e.getValue());
                         Config.rawPathBlocks.remove(blockId);
                         Config.saveRaw();
                         Config.reload();
-                        event.sendSuccess(TextUtil.literal("Removed the Speedy Path with the block id \"" + blockId + "\""), false);
+                        e.sendSuccess(TextUtil.literal("Removed the Speedy Path with the block id \"" + blockId + "\""), false);
                     }
                 });
             }
@@ -192,8 +192,8 @@ public class SpeedyPathCommand extends LiteralCommand {
     }
 
     @Override
-    public void execute(ServerCommandEvent event) {
-        event.sendSuccess(TextUtil.literal(
+    public void execute(ServerCommandEvent e) {
+        e.sendSuccess(TextUtil.literal(
                 "[Speedy Path]"
                 + "\n- /speedypath : Show this help message"
                 + "\n- /speedypath reload : Reload the config file"
