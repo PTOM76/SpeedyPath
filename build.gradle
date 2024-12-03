@@ -90,11 +90,10 @@ subprojects {
 
         }
 
-        /*
         if (System.getenv("MODRINTH_TOKEN") != null) {
             modrinth {
                 token = System.getenv("MODRINTH_TOKEN")
-                projectId = ''
+                projectId = 'speedy-path'
                 versionNumber = project.mod_version + "-" + modLoader
 
                 gameVersions = []
@@ -116,7 +115,7 @@ subprojects {
                 }
             }
         }
-    */
+
     }
 }
 
