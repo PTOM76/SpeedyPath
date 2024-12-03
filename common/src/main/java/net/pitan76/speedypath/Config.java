@@ -2,7 +2,7 @@ package net.pitan76.speedypath;
 
 import net.minecraft.block.Block;
 import net.pitan76.easyapi.config.JsonConfig;
-import net.pitan76.mcpitanlib.api.util.BlockUtil;
+import net.pitan76.mcpitanlib.api.util.block.BlockUtil;
 import net.pitan76.mcpitanlib.api.util.CompatIdentifier;
 import net.pitan76.mcpitanlib.api.util.PlatformUtil;
 

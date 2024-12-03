@@ -1,7 +1,7 @@
 package net.pitan76.speedypath.block;
 
 import net.minecraft.block.Block;
-import net.pitan76.mcpitanlib.api.block.CompatibleBlockSettings;
+import net.pitan76.mcpitanlib.api.block.v2.CompatibleBlockSettings;
 import net.pitan76.mcpitanlib.api.block.CompatibleMaterial;
 import net.pitan76.mcpitanlib.api.registry.result.RegistryResult;
 
@@ -14,7 +14,7 @@ public class Blocks {
     public static RegistryResult<Block> BRICK_PATH;
 
     public static void init() {
-        STONE_PATH = registry.registerBlock(_id("stone_path"), () -> new CustomPathBlock(CompatibleBlockSettings.of(CompatibleMaterial.STONE).strength(1.5F, 6.0F)));
-        BRICK_PATH = registry.registerBlock(_id("brick_path"), () -> new FacingCustomPathBlock(CompatibleBlockSettings.of(CompatibleMaterial.STONE).strength(1.5F, 6.0F)));
+        STONE_PATH = registry.registerBlock(_id("stone_path"), () -> new CustomPathBlock(CompatibleBlockSettings.of(_id("stone_path"), CompatibleMaterial.STONE).strength(1.5F, 6.0F)));
+        BRICK_PATH = registry.registerBlock(_id("brick_path"), () -> new FacingCustomPathBlock(CompatibleBlockSettings.of(_id("brick_path"), CompatibleMaterial.STONE).strength(1.5F, 6.0F)));
     }
 }
